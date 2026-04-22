@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique de confidentialité - ZEKAYA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #FF6B47;
+            --secondary-color: #F4E96D;
+            --text-primary: #1A1A1A;
+            --text-secondary: #666666;
+            --text-muted: #999999;
+            --background: #FFFFFF;
+            --background-light: #FAFBFC;
+            --border: #E5E7EB;
+            --border-light: #F3F4F6;
+            --success: #22C55E;
+            --warning: #F59E0B;
+            --error: #EF4444;
+            --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--background);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #FF8A6B 100%);
+            color: white;
+            padding: 60px 0 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="3" fill="rgba(255,255,255,0.15)"/><circle cx="60" cy="30" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="30" cy="70" r="2.5" fill="rgba(255,255,255,0.12)"/></svg>') repeat;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-100px); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            font-size: 3rem;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        }
+
+        .header-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .last-updated {
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Content */
+        .content {
+            padding: 60px 0;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.3s; }
+        .section:nth-child(5) { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--border-light);
+        }
+
+        .section-number {
+            background: var(--primary-color);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Cards and tables */
+        .card {
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: var(--background);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .data-table th {
+            background: var(--background-light);
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-primary);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .data-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-light);
+            vertical-align: top;
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .data-table tr:hover {
+            background: var(--background-light);
+        }
+
+        /* Lists */
+        .rights-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .rights-list li {
+            background: var(--background-light);
+            margin: 8px 0;
+            padding: 16px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .rights-list li:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow);
+        }
+
+        .rights-list strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Contact section */
+        .contact-card {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #F8E84C 100%);
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 16px 24px;
+            border-radius: 50px;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Delete account highlight */
+        .delete-highlight {
+            background: linear-gradient(135deg, #FEF2F2 0%, #FDE8E8 100%);
+            border: 2px solid #FECACA;
+            border-radius: 16px;
+            padding: 24px;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .delete-highlight::before {
+            content: '🗑️';
+            position: absolute;
+            top: -12px;
+            left: 24px;
+            background: #EF4444;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 1.2rem;
+        }
+
+        .delete-highlight h4 {
+            color: #DC2626;
+            font-weight: 600;
+            margin-bottom: 12px;
+            margin-top: 8px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .header {
+                padding: 40px 0 60px 0;
+            }
+
+            .logo {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 40px 0;
+            }
+
+            .data-table {
+                font-size: 0.9rem;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 12px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--background-light);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">
+                    <span class="logo-icon">🔒</span>
+                    Politique de confidentialité
+                </h1>
+                <p class="header-subtitle">ZEKAYA - Protection de vos données personnelles</p>
+                <div class="last-updated">Dernière mise à jour : 21 avril 2026</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <main class="content">
+        <div class="container">
+
+            <!-- Section 1 -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">1</div>
+                    <h2 class="section-title">Responsable du traitement</h2>
+                </div>
+                <div class="card">
+                    <p><strong>ZEKAYA</strong><br>
+                    Audrey Jason<br>
+                    Email : zekaya.app@gmail.com<br>
+                    Pays : France</p>
+                </div>
+            </section>
+
+            <!-- Section 2 -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">2</div>
+                    <h2 class="section-title">Données collectées et bases légales</h2>
+                </div>
+
+                <h3>Données obligatoires</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Données</th>
+                            <th>Finalité</th>
+                            <th>Base légale</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Email, UID</td>
+                            <td>Authentification, gestion compte</td>
+                            <td>Exécution du contrat</td>
+                        </tr>
+                        <tr>
+                            <td>Tickets (images/PDF)</td>
+                            <td>Analyse et extraction de données</td>
+                            <td>Exécution du contrat</td>
+                        </tr>
+                        <tr>
+                            <td>Données extraites (produits, prix, dates)</td>
+                            <td>Fonctionnalités de l'application</td>
+                            <td>Exécution du contrat</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Données optionnelles</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Données</th>
+                            <th>Finalité</th>
+                            <th>Base légale</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Listes de courses</td>
+                            <td>Fonctionnalités avancées</td>
+                            <td>Exécution du contrat</td>
+                        </tr>
+                        <tr>
+                            <td>Données d'usage anonymisées</td>
+                            <td>Amélioration de l'application</td>
+                            <td>Intérêt légitime</td>
+                        </tr>
+                        <tr>
+                            <td>Logs techniques</td>
+                            <td>Maintenance et support</td>
+                            <td>Intérêt légitime</td>
+                        </tr>
+                        <tr>
+                            <td>Informations appareil/OS</td>
+                            <td>Compatibilité et optimisation</td>
+                            <td>Intérêt légitime</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Cookies et traceurs</h3>
+                <div class="card">
+                    <p>L'application utilise des identifiants techniques essentiels au fonctionnement. Aucun cookie publicitaire n'est déployé.</p>
+                </div>
+            </section>
+
+            <!-- Section 3 -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">3</div>
+                    <h2 class="section-title">Finalités du traitement</h2>
+                </div>
+                <div class="card">
+                    <ul>
+                        <li><strong>Fourniture du service</strong> : Analyse des tickets, gestion des listes de courses</li>
+                        <li><strong>Gestion du compte</strong> : Authentification, abonnements, support utilisateur</li>
+                        <li><strong>Amélioration du produit</strong> : Analyse d'usage anonymisée, corrections de bugs</li>
+                        <li><strong>Obligations légales</strong> : Conservation des logs selon réglementation</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 4 -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">4</div>
+                    <h2 class="section-title">Destinataires des données</h2>
+                </div>
+
+                <h3>Destinataires internes</h3>
+                <div class="card">
+                    <ul>
+                        <li>Équipe de développement (accès limité aux données techniques)</li>
+                        <li>Support utilisateur (accès aux données de compte uniquement)</li>
+                    </ul>
+                </div>
+
+                <h3>Sous-traitants et partenaires</h3>
+                <div class="card">
+                    <ul>
+                        <li><strong>Firebase (Google)</strong> : Hébergement, authentification, base de données</li>
+                        <li><strong>Google Cloud Vision API</strong> : Analyse OCR des tickets</li>
+                        <li><strong>RevenueCat</strong> : Gestion des abonnements</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 5 -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">5</div>
+                    <h2 class="section-title">Transferts internationaux</h2>
+                </div>
+                <div class="card">
+                    <p>Vos données peuvent être traitées aux <strong>États-Unis</strong> par nos partenaires (Google, RevenueCat) dans le cadre du :</p>
+                    <ul>
+                        <li><strong>Data Privacy Framework EU-US</strong> (décision d'adéquation)</li>
+                        <li><strong>Clauses contractuelles types</strong> de la Commission européenne</li>
+                        <li><strong>Mesures de sécurité supplémentaires</strong> (chiffrement, contrôles d'accès)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 6 -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">6</div>
+                    <h2 class="section-title">Conservation des données</h2>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Type de données</th>
+                            <th>Durée de conservation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Données de compte actif</td>
+                            <td>Pendant la durée du compte + 30 jours</td>
+                        </tr>
+                        <tr>
+                            <td>Données de compte supprimé</td>
+                            <td>Suppression immédiate</td>
+                        </tr>
+                        <tr>
+                            <td>Logs techniques</td>
+                            <td>26 mois maximum</td>
+                        </tr>
+                        <tr>
+                            <td>Données d'usage anonymisées</td>
+                            <td>36 mois maximum</td>
+                        </tr>
+                        <tr>
+                            <td>Données de facturation</td>
+                            <td>10 ans (obligation légale)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Section 7 -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">7</div>
+                    <h2 class="section-title">Sécurité et protection</h2>
+                </div>
+
+                <h3>Mesures techniques</h3>
+                <div class="card">
+                    <ul>
+                        <li>Chiffrement des données en transit (HTTPS/TLS)</li>
+                        <li>Chiffrement des données au repos</li>
+                        <li>Authentification sécurisée</li>
+                        <li>Sauvegardes automatiques chiffrées</li>
+                    </ul>
+                </div>
+
+                <h3>Mesures organisationnelles</h3>
+                <div class="card">
+                    <ul>
+                        <li>Accès aux données strictement limité</li>
+                        <li>Formation RGPD des équipes</li>
+                        <li>Audits de sécurité réguliers</li>
+                        <li>Procédures de gestion des incidents</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 8 -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">8</div>
+                    <h2 class="section-title">Vos droits RGPD</h2>
+                </div>
+
+                <h3>Droits exercés gratuitement</h3>
+                <ul class="rights-list">
+                    <li><strong>Droit d'accès</strong> : Obtenir une copie de vos données</li>
+                    <li><strong>Droit de rectification</strong> : Corriger des données inexactes</li>
+                    <li><strong>Droit à l'effacement</strong> : Supprimer vos données ("droit à l'oubli")</li>
+                    <li><strong>Droit à la portabilité</strong> : Récupérer vos données dans un format structuré</li>
+                    <li><strong>Droit d'opposition</strong> : Vous opposer au traitement (sauf base légale impérieuse)</li>
+                    <li><strong>Droit à la limitation</strong> : Restreindre le traitement</li>
+                </ul>
+
+                <h3>Comment exercer vos droits</h3>
+                <div class="card">
+                    <ul>
+                        <li><strong>Email</strong> : zekaya.app@gmail.com</li>
+                        <li><strong>Délai de réponse</strong> : 30 jours maximum</li>
+                        <li><strong>Pièce d'identité</strong> : Peut être demandée pour vérification</li>
+                    </ul>
+                </div>
+
+                <div class="delete-highlight">
+                    <h4>Suppression de compte intégrée</h4>
+                    <p>Une fonction de <strong>suppression définitive</strong> est disponible directement dans l'application (section Profil > Zone de danger). Cette action :</p>
+                    <ul>
+                        <li>Supprime immédiatement toutes vos données</li>
+                        <li>Annule votre abonnement</li>
+                        <li>Est <strong>irréversible</strong></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 9 -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">9</div>
+                    <h2 class="section-title">Âge minimum et consentement parental</h2>
+                </div>
+                <div class="card">
+                    <p>L'utilisation de ZEKAYA est réservée aux personnes de <strong>16 ans et plus</strong>.</p>
+                    <p>Pour les utilisateurs de 13 à 15 ans : consentement parental obligatoire à zekaya.app@gmail.com.</p>
+                </div>
+            </section>
+
+            <!-- Section 10 -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">10</div>
+                    <h2 class="section-title">Modifications de la politique</h2>
+                </div>
+                <div class="card">
+                    <p>Nous vous informerons par <strong>email</strong> de toute modification importante de cette politique.</p>
+                    <p>Les modifications mineures seront signalées dans l'application.</p>
+                </div>
+            </section>
+
+            <!-- Section 11 -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">11</div>
+                    <h2 class="section-title">Réclamations et recours</h2>
+                </div>
+
+                <h3>Contact prioritaire</h3>
+                <div class="card">
+                    <p>Pour toute question : <strong>zekaya.app@gmail.com</strong></p>
+                </div>
+
+                <h3>Autorité de contrôle</h3>
+                <div class="card">
+                    <p>En cas de désaccord, vous pouvez saisir la <strong>CNIL</strong> (Commission Nationale de l'Informatique et des Libertés) :</p>
+                    <ul>
+                        <li><strong>Site web</strong> : www.cnil.fr</li>
+                        <li><strong>Adresse</strong> : 3 Place de Fontenoy - TSA 80715 - 75334 PARIS CEDEX 07</li>
+                        <li><strong>Téléphone</strong> : +33 1 53 73 22 22</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 12 -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">12</div>
+                    <h2 class="section-title">Contact et transparence</h2>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>Restons en contact</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">📧 zekaya.app@gmail.com</div>
+                        <div class="contact-item">⏰ Réponse : 72 heures</div>
+                        <div class="contact-item">🌍 Français, Anglais</div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">🛒 ZEKAYA</div>
+                <p>Cette politique respecte le Règlement Général sur la Protection des Données (RGPD) et la loi Informatique et Libertés.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
